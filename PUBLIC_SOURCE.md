@@ -11,7 +11,8 @@ The first release intentionally starts with portable modules that do not require
 - portal bug-report persistence and redaction;
 - isolated capability-test reporting;
 - Voice V2 runtime/arbitration primitives;
-- Voice V2 transport/audio/session interfaces.
+- Voice V2 transport/audio/session interfaces;
+- self-contained public regression tests for the modules above.
 
 ## Not included yet
 
@@ -23,9 +24,11 @@ The following remain private until their machine-specific assumptions are extrac
 - PowerMox/Otho/sandbox deployment helpers;
 - worker registry/watchdog modules with private runtime paths;
 - private handoff and acceptance documents;
-- tests containing real lab addresses or environment-specific fixtures.
+- tests containing real lab addresses, personal account details, or environment-specific fixtures.
 
-This is not an attempt to hide architecture. It is a staged publication process intended to keep the public tree useful and reproducible without exposing private infrastructure.
+The worker registry/watchdog layer is a good next candidate once its runtime state paths are moved to explicit deployment configuration. The GitHub connector rejected that source during this pass, so it remains withheld rather than being forced through or partially published.
+
+This is a staged publication process intended to keep the public tree useful and reproducible without exposing private infrastructure.
 
 ## Publication rule
 
