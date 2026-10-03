@@ -4,7 +4,7 @@
 
 Lydia is a local-first AI operations assistant and dashboard. The project explores how a conversational assistant can coordinate local models, specialist workers, infrastructure tools, voice I/O, web research, and verification without treating model output as proof that work actually happened.
 
-This repository is the **public-facing documentation and dashboard project**. Private operational source, credentials, network topology, runtime state, and machine-specific configuration are intentionally kept out of the public repository.
+This repository is the **public-facing documentation, dashboard, and staged source-release project**. Private operational source, credentials, network topology, runtime state, and machine-specific configuration are intentionally kept out of the public repository.
 
 ## What Lydia is trying to do
 
@@ -49,6 +49,20 @@ The worker identities currently used in the project include **Adam** (primary wo
 4. **Routing should be explicit.** The system is evolving toward a single structured request/route decision layer.
 5. **Failures should trigger recovery, not immediate surrender.**
 6. **Private state stays private.** Credentials, internal addresses, logs, voice profiles, runtime databases, and machine-specific configuration do not belong in this repository.
+
+## Public source
+
+Source is being published in reviewed stages rather than copied wholesale from the private operational repository.
+
+The first source subset includes:
+
+- conversational intent helpers;
+- bounded tool-free conversation handling;
+- portal bug-report persistence/redaction;
+- offline capability-test reporting;
+- Voice V2 runtime, audio interfaces, transport, and session orchestration.
+
+See [PUBLIC_SOURCE.md](PUBLIC_SOURCE.md) for what is included, what is still withheld, and the publication criteria.
 
 ## Current areas of work
 
