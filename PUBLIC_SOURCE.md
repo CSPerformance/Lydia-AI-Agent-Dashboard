@@ -1,18 +1,32 @@
 # Public source release status
 
-This branch contains the first reviewed code subset from Lydia's private operational repository.
+This branch contains the first reviewed source release from Lydia's private operational repository.
 
-## Included
+## Included in this release
 
-The first release intentionally starts with portable modules that do not require private host addressing or trusted management paths:
+The current public-source branch includes:
 
-- conversational intent helpers;
+- conversational intent and follow-up helpers;
 - bounded tool-free conversation handling;
 - portal bug-report persistence and redaction;
 - isolated capability-test reporting;
-- Voice V2 runtime/arbitration primitives;
-- Voice V2 transport/audio/session interfaces;
-- self-contained public regression tests for the modules above.
+- Voice V2 runtime, audio contracts, transport, and session orchestration;
+- agent support and scoped audio self-repair helpers;
+- auxiliary-worker, candidate-planner, and correction-memory modules;
+- host-observation and operator acceptance/model helpers;
+- planner capacity/core modules;
+- project coordinator and dispatcher modules;
+- peer recovery and read-only worker helpers;
+- research self-repair and web research modules;
+- team design, memory, research, and review modules;
+- Tempest weather provider and interactive setup utility;
+- self-contained public regression tests for the published helpers and Voice V2 pieces.
+
+## Portability changes
+
+Public-facing code is published only after review for environment-specific data.
+
+The Tempest provider's default configuration path was changed from a private deployment path to an environment-configurable/public-safe path. The private repository remains the authoritative source for the live deployment.
 
 ## Not included yet
 
@@ -20,15 +34,13 @@ The following remain private until their machine-specific assumptions are extrac
 
 - the main `lydia.py` controller;
 - Adam/Hermes transport and worker execution internals;
-- infrastructure planner/controller modules;
+- the full infrastructure runtime/planner modules;
 - PowerMox/Otho/sandbox deployment helpers;
-- worker registry/watchdog modules with private runtime paths;
+- worker registry/watchdog modules whose live deployment paths still need a clean publication path;
 - private handoff and acceptance documents;
 - tests containing real lab addresses, personal account details, or environment-specific fixtures.
 
-The worker registry/watchdog layer is a good next candidate once its runtime state paths are moved to explicit deployment configuration. The GitHub connector rejected that source during this pass, so it remains withheld rather than being forced through or partially published.
-
-This is a staged publication process intended to keep the public tree useful and reproducible without exposing private infrastructure.
+The private portability branch already makes the worker status/watchdog state directory configurable without changing the live default. Those changes can be integrated separately before a later public release.
 
 ## Publication rule
 
@@ -42,4 +54,4 @@ A private module is copied public only after review for:
 - runtime state and job data;
 - environment-specific assumptions that should become configuration.
 
-The private repository remains the authoritative operational source while this public tree is generalized.
+The private repository remains the authoritative operational source while the public tree is generalized.
